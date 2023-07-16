@@ -8,11 +8,11 @@ from customers.serializers import CustomerSerializer
     we use serializer.data to get the serializer version 
 '''
 def customers( request ) :
-    # invoke serializer and return to client ( serializer means from database object to JSON data )
+    # invoke serializer and return to client ( serializer use to turn database object to JSON data )
     data = Customer.objects.all( )
     serializer = CustomerSerializer( data, many = True )
     return JsonResponse( 
-        { 
+        {
             'customers' : serializer.data
         }
     )
